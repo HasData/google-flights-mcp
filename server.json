@@ -1,0 +1,39 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.hasdata/google-flights",
+  "title": "HasData Google Flights",
+  "description": "Google Flights itineraries with fares, legs, carbon emissions and price history, as JSON.",
+  "version": "1.0.0",
+  "websiteUrl": "https://hasdata.com/apis/google-flights-api",
+  "repository": { "url": "https://github.com/HasData/google-flights-mcp", "source": "github" },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.hasdata.com/api/mcp?apis=google_travel_flights",
+      "headers": [
+        { "name": "x-api-key", "description": "HasData API key, created at app.hasdata.com. The free trial needs no card.", "isRequired": true, "isSecret": true }
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@hasdata/google-flights-mcp",
+      "version": "1.0.0",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        { "name": "HASDATA_API_KEY", "description": "HasData API key, created at app.hasdata.com. The free trial needs no card.", "isRequired": true, "isSecret": true }
+      ]
+    },
+    {
+      "registryType": "pypi",
+      "identifier": "hasdata-google-flights-mcp",
+      "version": "1.0.0",
+      "runtimeHint": "uvx",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        { "name": "HASDATA_API_KEY", "description": "HasData API key, created at app.hasdata.com. The free trial needs no card.", "isRequired": true, "isSecret": true }
+      ]
+    }
+  ]
+}

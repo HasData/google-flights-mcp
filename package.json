@@ -1,0 +1,16 @@
+{
+  "name": "@hasdata/google-flights-mcp",
+  "mcpName": "com.hasdata/google-flights",
+  "version": "1.0.0",
+  "description": "MCP server for Google Flights through HasData's hosted API: one-way, round-trip and multi-city itineraries with fares, legs, carbon emissions and price history. No Google account.",
+  "type": "module",
+  "bin": { "hasdata-google-flights-mcp": "index.mjs" },
+  "files": ["index.mjs", "README.md", "LICENSE"],
+  "scripts": { "test": "node --test" },
+  "dependencies": { "mcp-remote": "^0.1.43" },
+  "engines": { "node": ">=18" },
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/HasData/google-flights-mcp.git" },
+  "homepage": "https://hasdata.com/apis/google-flights-api",
+  "keywords": ["mcp", "google-flights", "google-flights-mcp", "flights", "travel", "model-context-protocol", "hasdata", "scraper"]
+}
