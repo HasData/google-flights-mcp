@@ -125,9 +125,12 @@ test('the tool carries a description', live, async () => {
 });
 
 test('the key is accepted by HasData', live, async () => {
+    // Compute the date at run time. A hardcoded future date silently becomes a past date and
+    // then Google rejects the outbound date, turning this canary red for the wrong reason.
+    const outboundDate = new Date(Date.now() + 30 * 86_400_000).toISOString().slice(0, 10);
     const { raw } = await rpc('tools/call', {
         name: 'hasdata_google_travel_flights_getGoogleFlights',
-        arguments: { departureId: 'JFK', arrivalId: 'LHR', outboundDate: '2026-09-15', type: 'oneWay' },
+        arguments: { departureId: 'JFK', arrivalId: 'LHR', outboundDate, type: 'oneWay' },
     });
     assert.ok(!raw.includes('401 Unauthorized'), 'HasData rejected the key');
     assert.ok(!raw.includes('"isError":true'), `the tool call failed: ${raw.slice(0, 300)}`);
