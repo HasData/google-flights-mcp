@@ -1,6 +1,6 @@
 [project]
 name = "hasdata-google-flights-mcp"
-version = "1.0.0"
+version = "1.0.1"
 description = "MCP server for Google Flights through HasData's hosted API. No Google account."
 readme = "README.md"
 requires-python = ">=3.10"
