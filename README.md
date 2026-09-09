@@ -36,7 +36,7 @@ https://mcp.hasdata.com/api/mcp?apis=google_travel_flights
 
 ## What you need
 
-An MCP client and a HasData API key from the [dashboard](https://app.hasdata.com/sign-up?utm_source=github&utm_medium=syndication&utm_campaign=google-flights-mcp), free to create with no card, and the trial covers about 66 calls at the 15-credit rate. This is a remote server, so the simplest path is a URL and an `x-api-key` header, with no container to run and no Google account anywhere in the flow. A client that only speaks stdio reaches it through a thin launcher, published as `@hasdata/google-flights-mcp` on npm and `hasdata-google-flights-mcp` on PyPI, shown below.
+An MCP client and a HasData API key from the [dashboard](https://app.hasdata.com/sign-up?utm_source=github&utm_medium=syndication&utm_campaign=google-flights-mcp), free to create with no card, and the free tier covers about 66 calls a month at the 15-credit rate. This is a remote server, so the simplest path is a URL and an `x-api-key` header, with no container to run and no Google account anywhere in the flow. A client that only speaks stdio reaches it through a thin launcher, published as `@hasdata/google-flights-mcp` on npm and `hasdata-google-flights-mcp` on PyPI, shown below.
 
 ## Quick start
 
@@ -281,7 +281,7 @@ Google retired its QPX Express flight API in 2018 and never replaced it, so ther
 | Emissions data | Not offered | Per-itinerary, compared to the route average |
 | Price history | Not offered | `priceInsights` with a typical range |
 | Setup | Nothing to set up, because it does not exist | One key and one URL |
-| Cost | Not applicable | Paid past the trial, 15 credits a call |
+| Cost | Not applicable | Paid past the free tier, 15 credits a call |
 
 **What this server does not do.** No booking and no payment. It reads fares, legs and the tokens Google itself uses to move to booking, and hands the booking step back to you.
 
