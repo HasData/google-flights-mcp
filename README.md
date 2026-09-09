@@ -4,6 +4,8 @@
 
 A hosted Model Context Protocol (MCP) server that gives Claude, Cursor, Windsurf and any other MCP client one Google Flights tool. Search one-way, round-trip and multi-city itineraries with fares, flight legs, carbon emissions and price history, all as structured JSON, with no Google account and no retired travel API to work around.
 
+**1,000 free credits every month, no card required**, which is about 66 flight searches.
+
 ```
 https://mcp.hasdata.com/api/mcp?apis=google_travel_flights
 ```
@@ -249,11 +251,11 @@ Results that carry data also carry a `requestMetadata.id` worth quoting in suppo
 
 Every Google Flights call costs **15 credits per successful call**. Response size does not change the price, and the deep search costs the same as a standard one.
 
-The free trial is **1,000 credits over 30 days with no card**, which is about 66 flight searches. After that an active account keeps getting 100 credits topped up each day whenever its balance drops below 100, so a low-volume agent runs on the free tier indefinitely.
+The free tier is **1,000 credits every month with no card**, which is about 66 flight searches. It renews with the billing cycle, so a low-volume agent runs on the free tier indefinitely.
 
 Paid plans start at **$49 a month** for 200,000 credits, which is about 13,000 searches. The unit price falls with volume, from **$3.68 per 1,000 calls** on the entry plan to **$1.49** on Business, **$1.25** on Growth and **$1.12** on the largest [high-volume plans](https://hasdata.com/prices?utm_source=github&utm_medium=syndication&utm_campaign=google-flights-mcp).
 
-Your plan also sets concurrency. The free trial allows 1 request at a time, Startup 15, Business 30, Growth 50, and the high-volume plans run from 200 to 1,500. Handle the overflow case defensively in anything unattended.
+Your plan also sets concurrency. The free tier allows 1 request at a time, Startup 15, Business 30, Growth 50, and the high-volume plans run from 200 to 1,500. Handle the overflow case defensively in anything unattended.
 
 A request that comes back non-200 is not billed. A round trip is two calls, so budget for it.
 
