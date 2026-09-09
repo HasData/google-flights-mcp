@@ -2,7 +2,7 @@
   "name": "@hasdata/google-flights-mcp",
   "mcpName": "com.hasdata/google-flights",
   "version": "1.0.1",
-  "description": "MCP server for Google Flights through HasData's hosted API: one-way, round-trip and multi-city itineraries with fares, legs, carbon emissions and price history. No Google account.",
+  "description": "MCP server for Google Flights through HasData's hosted API: one-way, round-trip and multi-city itineraries with fares, legs, carbon emissions and price history. 1,000 free credits every month.",
   "type": "module",
   "bin": {
     "hasdata-google-flights-mcp": "index.mjs"
