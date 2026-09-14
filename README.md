@@ -174,9 +174,9 @@ A round trip is two calls by design. The first returns outbound itineraries each
 
 ## Tools
 
-| Tool | Credits | What it returns |
-| :--- | :--- | :--- |
-| `hasdata_google_travel_flights_getGoogleFlights` | 15 | Per-itinerary price, currency, total duration, stops, flight legs with airline, flight number, aircraft, departure/arrival airports and times, CO2 emissions, plus… |
+| Tool | What it returns |
+| --- | --- |
+| `hasdata_google_travel_flights_getGoogleFlights` | Per-itinerary price, currency, total duration, stops, flight legs with airline, flight number, aircraft, departure/arrival airports and times, CO2 emissions, plus…. 15 credits a call |
 
 One tool, read-only. The sample below is trimmed from a real call, and fares move constantly. Read it as a shape. The tool name links to its endpoint reference, which carries the full parameter list.
 
