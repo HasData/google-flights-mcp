@@ -174,6 +174,10 @@ A round trip is two calls by design. The first returns outbound itineraries each
 
 ## Tools
 
+| Tool | Credits | What it returns |
+| :--- | :--- | :--- |
+| `hasdata_google_travel_flights_getGoogleFlights` | 15 | Per-itinerary price, currency, total duration, stops, flight legs with airline, flight number, aircraft, departure/arrival airports and times, CO2 emissions, plus… |
+
 One tool, read-only. The sample below is trimmed from a real call, and fares move constantly. Read it as a shape. The tool name links to its endpoint reference, which carries the full parameter list.
 
 The sample is the payload, not the whole response. A `tools/call` result carries one text block, and that text is itself JSON holding `url`, `status`, `text` and `json`, with the scraped data under `json`. From a raw JSON-RPC response the path is `result.content[0].text`, parsed, then `.json`. A chat client unwraps that for you and code talking to the endpoint directly does not.
