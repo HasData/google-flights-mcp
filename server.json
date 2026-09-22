@@ -3,7 +3,7 @@
   "name": "com.hasdata/google-flights",
   "title": "HasData Google Flights",
   "description": "Google Flights itineraries with fares, legs, carbon emissions and price history, as JSON.",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "websiteUrl": "https://hasdata.com/apis/google-flights-api",
   "repository": {
     "url": "https://github.com/HasData/google-flights-mcp",
@@ -27,7 +27,7 @@
     {
       "registryType": "npm",
       "identifier": "@hasdata/google-flights-mcp",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "transport": {
         "type": "stdio"
       },
@@ -43,7 +43,7 @@
     {
       "registryType": "pypi",
       "identifier": "hasdata-google-flights-mcp",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "runtimeHint": "uvx",
       "transport": {
         "type": "stdio"
