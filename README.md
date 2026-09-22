@@ -7,7 +7,7 @@ A hosted Model Context Protocol (MCP) server that gives Claude, Cursor, Windsurf
 **1,000 free credits every month, no card required**, which is about 66 flight searches.
 
 ```
-https://mcp.hasdata.com/api/mcp?apis=google_travel_flights
+https://mcp.hasdata.com/mcp?apis=google_travel_flights
 ```
 
 [![Glama score](https://glama.ai/mcp/servers/HasData/google-flights-mcp/badges/score.svg)](https://glama.ai/mcp/servers/HasData/google-flights-mcp)
@@ -44,7 +44,7 @@ The server URL is the same for every client. We run it hands-on in Claude Code a
 
 | Field | Value |
 | :--- | :--- |
-| URL | `https://mcp.hasdata.com/api/mcp?apis=google_travel_flights` |
+| URL | `https://mcp.hasdata.com/mcp?apis=google_travel_flights` |
 | Transport | HTTP, streamable |
 | Auth header | `x-api-key: HASDATA_API_KEY` |
 
@@ -54,7 +54,7 @@ Clients with OAuth support can add the same URL as a connector and sign in witho
 <summary><b>Claude Code</b></summary>
 
 ```bash
-claude mcp add --transport http google-flights "https://mcp.hasdata.com/api/mcp?apis=google_travel_flights" \
+claude mcp add --transport http google-flights "https://mcp.hasdata.com/mcp?apis=google_travel_flights" \
   --header "x-api-key: HASDATA_API_KEY"
 ```
 
@@ -63,7 +63,7 @@ claude mcp add --transport http google-flights "https://mcp.hasdata.com/api/mcp?
 <details>
 <summary><b>Claude Desktop</b></summary>
 
-Settings, then Connectors, then Add custom connector, then paste `https://mcp.hasdata.com/api/mcp?apis=google_travel_flights` and sign in.
+Settings, then Connectors, then Add custom connector, then paste `https://mcp.hasdata.com/mcp?apis=google_travel_flights` and sign in.
 
 For the config-file route, Claude Desktop loads only local (stdio) servers, so it reaches a remote server through a stdio launcher. The `@hasdata/google-flights-mcp` package is that launcher, and it reads the key from the environment. Add this to `claude_desktop_config.json`:
 
@@ -104,7 +104,7 @@ For Python instead of Node, swap the launcher for the PyPI package, which `uvx` 
 {
   "mcpServers": {
     "google-flights": {
-      "url": "https://mcp.hasdata.com/api/mcp?apis=google_travel_flights",
+      "url": "https://mcp.hasdata.com/mcp?apis=google_travel_flights",
       "headers": { "x-api-key": "HASDATA_API_KEY" }
     }
   }
@@ -122,7 +122,7 @@ For Python instead of Node, swap the launcher for the PyPI package, which `uvx` 
 {
   "mcpServers": {
     "google-flights": {
-      "serverUrl": "https://mcp.hasdata.com/api/mcp?apis=google_travel_flights",
+      "serverUrl": "https://mcp.hasdata.com/mcp?apis=google_travel_flights",
       "headers": { "x-api-key": "HASDATA_API_KEY" }
     }
   }
@@ -141,7 +141,7 @@ For Python instead of Node, swap the launcher for the PyPI package, which `uvx` 
   "servers": {
     "google-flights": {
       "type": "http",
-      "url": "https://mcp.hasdata.com/api/mcp?apis=google_travel_flights",
+      "url": "https://mcp.hasdata.com/mcp?apis=google_travel_flights",
       "headers": { "x-api-key": "HASDATA_API_KEY" }
     }
   }
