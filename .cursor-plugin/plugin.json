@@ -1,0 +1,24 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "hasdata-google-flights-mcp",
+  "version": "1.0.1",
+  "description": "Google Flights MCP server for Cursor. One-way, round-trip and multi-city itineraries with fares, legs, layovers, carbon emissions and price history, as structured JSON. Remote MCP server hosted by HasData, connects over streamable HTTP with your HasData API key.",
+  "author": {
+    "name": "HasData",
+    "url": "https://hasdata.com"
+  },
+  "homepage": "https://hasdata.com/apis/google-flights-api",
+  "repository": "https://github.com/HasData/google-flights-mcp",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "google-flights",
+    "google-flights-mcp",
+    "flights",
+    "travel",
+    "model-context-protocol",
+    "hasdata",
+    "scraper"
+  ],
+  "logo": "https://hasdata.com/favicon.svg"
+}
