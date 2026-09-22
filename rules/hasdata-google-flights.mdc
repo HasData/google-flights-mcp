@@ -1,0 +1,30 @@
+---
+description: How to pull Google Flights itineraries, fares and emissions through the HasData MCP server
+alwaysApply: false
+---
+
+# Google Flights through HasData
+
+One tool, `hasdata_google_travel_flights_getGoogleFlights`. It needs `departureId`, `arrivalId` and `outboundDate`, and it returns the itineraries Google shows for that route and day.
+
+Airports are IATA codes such as `JFK` or location kgmids, never city names. A city name comes back as a 400 with `requestMetadata.status` set to `error`. Several airports can share one field, comma-separated.
+
+## Two rules the validator enforces
+
+`type` defaults to `roundTrip`, and a round trip without `returnDate` fails validation before it becomes a search. `includeAirlines` and `excludeAirlines` are one or the other, and sending both is rejected the same way.
+
+Validation failures arrive as tool output with `isError` set to true, carrying a 422 and naming the offending field and the rule it broke, such as `requiredWhen` or `mutuallyExclusive`. The call itself succeeds, so nothing in the transport reports the problem.
+
+## Reading the payload
+
+Itineraries split into `bestFlights` and `otherFlights`. A route with nothing flying that day returns both arrays empty and a status of `ok`, so test for itineraries before ranking them.
+
+`totalDuration` is minutes. `carbonEmissions.thisFlight` is grams, so `433000` is 433 kg, and `differencePercent` compares it to `typicalForThisRoute` where a negative number means cleaner than average.
+
+`priceInsights` sits beside the itineraries with `lowestPrice`, a `typicalPriceRange`, a `priceLevel` and a `priceHistory` of timestamp and price pairs. That is where the answer to "is this a good fare" lives, rather than in the fare itself.
+
+## Tokens
+
+`departureToken` picks an outbound option and fetches its return leg, `bookingToken` fetches booking options for a chosen itinerary. Both come from a previous response, and each is another billed call, so a round trip priced end to end is at least two.
+
+Fares move constantly. Quote the date you pulled them alongside the number.
