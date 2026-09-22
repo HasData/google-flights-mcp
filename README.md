@@ -257,9 +257,9 @@ Every Google Flights call costs **15 credits per successful call**. Response siz
 
 The free tier is **1,000 credits every month with no card**, which is about 66 flight searches. It renews with the billing cycle, so a low-volume agent runs on the free tier indefinitely.
 
-Paid plans start at **$49 a month** for 200,000 credits, which is about 13,000 searches. The unit price falls with volume, from **$3.68 per 1,000 calls** on the entry plan to **$1.49** on Business, **$1.25** on Growth and **$1.12** on the largest [high-volume plans](https://hasdata.com/prices?utm_source=github&utm_medium=syndication&utm_campaign=google-flights-mcp).
+Paid plans start at **$59 a month** for 200,000 credits, which is about 13,000 searches. The unit price falls with volume, from **$4.42 per 1,000 calls** on the entry plan to **$1.79** on Basic and **$1.25** across the Growth tiers. Current figures live on the [pricing page](https://hasdata.com/prices?utm_source=github&utm_medium=syndication&utm_campaign=google-flights-mcp).
 
-Your plan also sets concurrency. The free tier allows 1 request at a time, Startup 15, Business 30, Growth 50, and the high-volume plans run from 200 to 1,500. Handle the overflow case defensively in anything unattended.
+Your plan also sets concurrency. The free tier allows 1 request at a time, Startup 5, Basic 15, and the Growth tiers run from 50 to 500. Handle the overflow case defensively in anything unattended.
 
 A request that comes back non-200 is not billed. A round trip is two calls, so budget for it.
 
