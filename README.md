@@ -14,6 +14,7 @@ https://mcp.hasdata.com/mcp?apis=google_travel_flights
 [![tool contract](https://github.com/HasData/google-flights-mcp/actions/workflows/contract.yml/badge.svg)](https://github.com/HasData/google-flights-mcp/actions/workflows/contract.yml)
 [![MCP](https://img.shields.io/badge/MCP-remote%20%7C%20streamable%20HTTP-6366f1?style=flat-square)](https://modelcontextprotocol.io)
 [![Tools](https://img.shields.io/badge/tools-1-10b981?style=flat-square)](#tools)
+- [Prompts and resources](#prompts-and-resources)
 [![npm](https://img.shields.io/npm/v/@hasdata/google-flights-mcp?style=flat-square&logo=npm&label=npm&color=cb3837)](https://www.npmjs.com/package/@hasdata/google-flights-mcp)
 [![PyPI](https://img.shields.io/pypi/v/hasdata-google-flights-mcp?style=flat-square&logo=pypi&logoColor=white&label=PyPI&color=3775a9)](https://pypi.org/project/hasdata-google-flights-mcp/)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
@@ -234,6 +235,28 @@ Results split into `bestFlights` and `otherFlights`. Each itinerary carries `pri
 ```
 
 `priceInsights` sits alongside the itineraries with `lowestPrice`, a `typicalPriceRange`, a `priceLevel` such as `typical`, and a `priceHistory` of `[timestamp, price]` points. `airports` echoes the resolved departure and arrival airports with city and country.
+
+## Prompts and resources
+
+The server ships one prompt, a ready-made workflow a client can offer instead of making the user compose a tool call.
+
+| Prompt | What it does |
+| --- | --- |
+| `google_flights` | Compare flight options between two airports. |
+
+Alongside them the server exposes 7 resources, one per parameter whose accepted values are a fixed list. Reading one is cheaper than learning the vocabulary from a rejected call, and it costs no credits. Each URI is `hasdata://google_travel_flights/<parameter>`.
+
+| Parameter | Values | What it selects |
+| --- | ---: | --- |
+| `type` | 3 | Specifies the type of flight. Options: - `roundTrip` (default) - `oneWay` - `multiCity` (requires `multiCityJson` for flight details) For round trips, retrieve return flight details with a separate request using `departureToken`. |
+| `gl` | 245 | The two-letter country code for the country you want to limit the search to. |
+| `hl` | 159 | The two-letter language code for the language you want to use for the search. |
+| `currency` | 71 | Parameter defines the currency of the returned prices |
+| `travelClass` | 4 | The travel class for the flight (Economy, Premium Economy, Business, or First). |
+| `sortBy` | 6 | Sort the flight results based on price, departure time, arrival time, etc. |
+| `stops` | 3 | Restrict the number of stops (layovers) in the flight itinerary. |
+
+Both lists are served without an API key, so a client can read them before a user has signed up.
 
 ## Errors and failure paths
 
