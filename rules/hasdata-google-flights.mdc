@@ -28,3 +28,9 @@ Itineraries split into `bestFlights` and `otherFlights`. A route with nothing fl
 `departureToken` picks an outbound option and fetches its return leg, `bookingToken` fetches booking options for a chosen itinerary. Both come from a previous response, and each is another billed call, so a round trip priced end to end is at least two.
 
 Fares move constantly. Quote the date you pulled them alongside the number.
+
+## Prompts and resources
+
+The server also serves resources that spell out the accepted values of every parameter that takes a fixed list, each one at `hasdata://google_travel_flights/<parameter>`. Reading one spends no credits and makes no upstream request, which beats discovering the vocabulary from a rejected call. Listing them needs no API key either, so a client can read them before the user has connected an account.
+
+Ready-made prompts cover the usual workflows. Offer one of those before composing a tool call by hand.
