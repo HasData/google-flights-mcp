@@ -2,7 +2,7 @@
 
 <!-- mcp-name: com.hasdata/google-flights -->
 
-A hosted Model Context Protocol (MCP) server that gives Claude, Cursor, Windsurf and any other MCP client one Google Flights tool. Search one-way, round-trip and multi-city itineraries with fares, flight legs, carbon emissions and price history, all as structured JSON, with no Google account and no retired travel API to work around.
+A hosted [Google Flights MCP server](https://hasdata.com/mcp/google-flights?utm_source=github&utm_medium=syndication&utm_campaign=google-flights-mcp&utm_content=readme-intro) that gives Claude, Cursor, Windsurf and any other MCP client one Google Flights tool. Search one-way, round-trip and multi-city itineraries with fares, flight legs, carbon emissions and price history, all as structured JSON, with no Google account and no retired travel API to work around.
 
 **1,000 free credits every month, no card required**, which is about 66 flight searches.
 
@@ -282,7 +282,7 @@ The free tier is **1,000 credits every month with no card**, which is about 66 f
 
 Paid plans start at **$59 a month** for 200,000 credits, which is about 13,000 searches. The unit price falls with volume, from **$4.42 per 1,000 calls** on the entry plan to **$1.79** on Basic and **$1.25** across the Growth tiers. Current figures live on the [pricing page](https://hasdata.com/prices?utm_source=github&utm_medium=syndication&utm_campaign=google-flights-mcp).
 
-Your plan also sets concurrency. The free tier allows 1 request at a time, Startup 5, Basic 15, and the Growth tiers run from 50 to 500. Handle the overflow case defensively in anything unattended.
+Your plan also sets concurrency. The free tier allows 5 requests at a time, Startup 5, Basic 15, and the Growth tiers run from 50 to 500. Handle the overflow case defensively in anything unattended.
 
 A request that comes back non-200 is not billed. A round trip is two calls, so budget for it.
 
